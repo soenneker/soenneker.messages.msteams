@@ -42,6 +42,6 @@
 
     <ItemGroup>
       <PackageReference Include="Soenneker.Dtos.MsTeams.Card" Version="4.0.97" />
-      <PackageReference Include="Soenneker.ServiceBus.Message" Version="4.0.2724" />
+      <PackageReference Include="Soenneker.ServiceBus.Message" Version="4.0.2727" />
     </ItemGroup>
 </Project>
