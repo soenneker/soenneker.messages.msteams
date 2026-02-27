@@ -1,6 +1,4 @@
-﻿using AdaptiveCards;
-using Newtonsoft.Json;
-using Soenneker.Dtos.AdaptiveCard.Attachments;
+﻿using Newtonsoft.Json;
 using Soenneker.Dtos.MsTeams.Card;
 using Soenneker.Messages.Base;
 using System.Text.Json.Serialization;
@@ -10,36 +8,20 @@ namespace Soenneker.Messages.MsTeams;
 /// <summary>
 /// A Service Bus Message for Microsoft Teams webhook sending
 /// </summary>
-public class MsTeamsMessage : Message
+public sealed class MsTeamsMessage : Message
 {
-    [JsonProperty("msTeamsCard")]
+    /// <summary>
+    /// Gets the Microsoft Teams card associated with this instance. This property is required and must be set during
+    /// object initialization.
+    /// </summary>
     [JsonPropertyName("msTeamsCard")]
-    public MsTeamsCard MsTeamsCard { get; set; } = null!;
+    [JsonProperty("msTeamsCard", Required = Required.Always)]
+    public required MsTeamsCard MsTeamsCard { get; init; }
 
-    [JsonProperty("channel")]
+    /// <summary>
+    /// Gets the name of the channel associated with this instance.
+    /// </summary>
     [JsonPropertyName("channel")]
-    public string Channel { get; set; } = null!;
-
-    public MsTeamsMessage() : base("msteams")
-    {
-        NewtonsoftSerialize = true;
-    }
-
-    public MsTeamsMessage(AdaptiveCard adaptiveCard, string channel) : base("msteams")
-    {
-        MsTeamsCard = new MsTeamsCard
-        {
-            Type = "message",
-            Attachments =
-            [
-                new AdaptiveCardAttachments
-                {
-                    Content = adaptiveCard
-                }
-            ]
-        };
-
-        NewtonsoftSerialize = true;
-        Channel = channel;
-    }
+    [JsonProperty("channel", Required = Required.Always)]
+    public required string Channel { get; init; }
 }
