@@ -16,12 +16,12 @@ public sealed class MsTeamsMessage : Message
     /// </summary>
     [JsonPropertyName("msTeamsCard")]
     [JsonProperty("msTeamsCard", Required = Required.Always)]
-    public required MsTeamsCard MsTeamsCard { get; init; }
+    public required MsTeamsCard MsTeamsCard { get; set; }
 
     /// <summary>
     /// Gets the name of the channel associated with this instance.
     /// </summary>
     [JsonPropertyName("channel")]
     [JsonProperty("channel", Required = Required.Always)]
-    public required string Channel { get; init; }
+    public required string Channel { get; set; }
 }
