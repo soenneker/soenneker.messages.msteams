@@ -1,16 +1,15 @@
-﻿using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Messages.MsTeams.Tests;
 
-[Collection("Collection")]
-public class MsTeamsMessageTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class MsTeamsMessageTests : HostedUnitTest
 {
-    public MsTeamsMessageTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public MsTeamsMessageTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
