@@ -38,7 +38,7 @@ jobs:
         run: dotnet build test/Soenneker.Messages.MsTeams.Tests/Soenneker.Messages.MsTeams.Tests.csproj --configuration Release --no-restore --verbosity minimal
 
       - name: Test
-        run: dotnet test test/Soenneker.Messages.MsTeams.Tests/Soenneker.Messages.MsTeams.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
+        run: dotnet test --project test/Soenneker.Messages.MsTeams.Tests/Soenneker.Messages.MsTeams.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
 
       - name: Pack
         run: dotnet pack src/Soenneker.Messages.MsTeams/Soenneker.Messages.MsTeams.csproj --configuration Release --no-build --no-restore --output . --verbosity minimal
