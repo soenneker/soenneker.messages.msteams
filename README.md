@@ -53,4 +53,4 @@ This package models the queue payload only. It does not resolve `Channel`, store
 - validate that each card schema version and element is supported by the target Teams client or webhook;
 - avoid placing credentials, webhook URLs, or sensitive operational data in the message or card content.
 
-C# `required` members and Newtonsoft.Json's required metadata do not replace validation at the message-processing boundary.
+C# `required` members required metadata do not replace validation at the message-processing boundary.
